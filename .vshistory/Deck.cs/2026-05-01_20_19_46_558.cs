@@ -16,21 +16,13 @@ namespace BlackJack
             {
                 foreach (Card.Rank rank in Enum.GetValues(typeof(Card.Rank)))
                 {
-                    cards.Add(new Card(suit, rank));
+                    cards.Add(new Card { GetSuit = suit, GetRank = rank });
                 }
             }
         }
-        public void ShuffleDeck()
+        public Card ShuffleDeck()
         {
-            Random rand = new Random();
-            int n = cards.Count;
-            while(n > 1)
-            {
-                n--;
-                int k = rand.Next(n + 1);
-                Card value = cards[k];
-                cards[n] = value;
-            }
+           
         }
     }
 }

@@ -27,9 +27,7 @@ namespace BlackJack
             while(n > 1)
             {
                 n--;
-                int k = rand.Next(n + 1);
-                Card value = cards[k];
-                cards[n] = value;
+                int k
             }
         }
     }

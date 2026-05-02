@@ -40,11 +40,6 @@ namespace BlackJack
         public Suit CardSuit { get; private set; }
         public Rank CardRank { get; private set; }
 
-        public uint GetValue()
-        {
-            return (uint)CardRank;
-        }
-
 
    
     }

@@ -23,14 +23,7 @@ namespace BlackJack
         public void ShuffleDeck()
         {
             Random rand = new Random();
-            int n = cards.Count;
-            while(n > 1)
-            {
-                n--;
-                int k = rand.Next(n + 1);
-                Card value = cards[k];
-                cards[n] = value;
-            }
+            rand.Shuffle(cards);
         }
     }
 }

@@ -8,6 +8,15 @@ namespace BlackJack
 {
     internal class Card
     {
+        public Card(Suit cardSuit_, Rank cardRank_)
+        {
+            Suit = cardSuit_;
+        }
+
+        public
+        {
+           
+        }
         public enum Suit
         {
             Hearts,
@@ -31,20 +40,6 @@ namespace BlackJack
             King = 10,
             Ace = 11
         }
-        public Card(Suit cardSuit_, Rank cardRank_)
-        {
-            CardSuit = cardSuit_;
-            CardRank = cardRank_;
-        }
-
-        public Suit CardSuit { get; private set; }
-        public Rank CardRank { get; private set; }
-
-        public uint GetValue()
-        {
-            return (uint)CardRank;
-        }
-
 
    
     }
