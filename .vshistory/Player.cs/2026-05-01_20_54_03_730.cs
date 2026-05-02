@@ -10,7 +10,7 @@ namespace BlackJack
     {
         public Player() 
         { 
-           
+        
         }
         public Hand Hand { get; private set; }
     }

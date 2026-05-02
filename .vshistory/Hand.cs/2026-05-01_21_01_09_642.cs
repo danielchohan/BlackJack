@@ -18,15 +18,5 @@ namespace BlackJack
         {
             Cards.Add(card);
         }
-
-        public uint GetHandValue()
-        {
-            uint handValue = 0;
-            foreach (Card card in Cards)
-            {
-                handValue += card.GetValue();
-            }
-            return handValue;
-        }
     }
 }

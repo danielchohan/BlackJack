@@ -8,10 +8,5 @@ namespace BlackJack
 {
     internal class Player
     {
-        public Player() 
-        { 
-           
-        }
-        public Hand Hand { get; private set; }
     }
 }
