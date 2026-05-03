@@ -9,10 +9,8 @@ namespace BlackJack
     internal class Player
     {
         #region Constants
-        private const byte WIN_MULTIPLIER = 2;
-        private const double BLACKJACK_MULTIPLIER = 2.5;
-        #endregion
-
+        private const byte BLACKJACK_PAYOUT_MULTIPLIER = 2;
+        private const double BLACKJACK_SPECIAL_PAYOUT_MULTIPLIER = 2;
         #region Data Members
         private string _name;
         private uint _chips;
@@ -46,7 +44,6 @@ namespace BlackJack
             private set { _chips = value; }
         }
         #endregion
-
         #region Methods
         public void PlaceBet(uint betAmount)
         {
@@ -63,13 +60,13 @@ namespace BlackJack
         }
         public void WinBet()
         {
-            Chips += _currentBet * WIN_MULTIPLIER; // Win double the amount of chips.
+            Chips += _currentBet * 2; // Win double the amount of chips.
             _currentBet = 0;
         }
 
         public void WinBlackJack()
         {
-            Chips += (uint)(_currentBet * BLACKJACK_MULTIPLIER); // 2.5x payout for BlackJack.
+            Chips += (uint)(_currentBet * 2.5); // 2.5x payout for BlackJack.
             _currentBet = 0;
         }
 

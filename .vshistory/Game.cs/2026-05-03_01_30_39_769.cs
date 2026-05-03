@@ -46,16 +46,16 @@ namespace BlackJack
         public void PlayRound()
         {
             DealInitialCards();
-            PlayerTurn();
-            DealersTurn();
+            DisplayTable(false);
+            // Player's turn
         }
 
         public void DealInitialCards()
         {
             for(int i = 0; i <2; i++)
             {
-                _player.Hand.AddCard(_deck.DealCards());
-                _dealer.Hand.AddCard(_deck.DealCards());
+                _player.Hand.AddCard(_deck.DealCards(_player));
+                _dealer.Hand.AddCard(_deck.DealCards(_player));
             }
         }
 
@@ -81,38 +81,7 @@ namespace BlackJack
         
         private void PlayerTurn()
         {
-            string choice;
-            do
-            {
-                DisplayTable(false);
-                Console.Write("Do you want to hit or stand? (h/s) : ");
-                choice = Console.ReadLine().ToLower();
-                if (choice == "h")
-                {
-                    _player.TakeCard(_deck.DealCards());
-                }
-                else if (choice != "s")
-                {
-                    Console.BackgroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Invalid choice. Please enter 'h' to hit or 's' to stand.");
-                    Console.ResetColor();
-                }
-            } while (choice != "s" && !_player.Hand.IsBust());
-        }
 
-        private void DealersTurn()
-        {
-            while (_dealer.ShouldHit())
-            {
-                _dealer.TakeCard(_deck.DealCards());
-                DisplayTable(true);
-            }
-        }
-
-        private void DetermineOutcome()
-        {
-            uint playerHandValue = _player.Hand.GetTotalHandValue();
-            uint dealerHandValue = _dealer.Hand.GetTotalHandValue();
         }
         private string StringValidation(string input)
         {

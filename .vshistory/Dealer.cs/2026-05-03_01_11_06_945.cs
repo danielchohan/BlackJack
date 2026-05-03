@@ -12,8 +12,6 @@ namespace BlackJack
         #region Constants
         private const byte DEALER_HIT_THRESHOLD = 17;
         #endregion
-
-
         #region Data Members
         private Hand _hand;
         #endregion
@@ -24,7 +22,6 @@ namespace BlackJack
            Hand = new Hand();
         }
         #endregion
-
         #region Properties
         public Hand Hand
         {
@@ -44,7 +41,5 @@ namespace BlackJack
         {
             return Hand.GetTotalHandValue() < DEALER_HIT_THRESHOLD; // Return true if GetHandValue is less than 17 and dealer will hit, else return false and don't hit.
         }
-
-        #endregion
     }
 }

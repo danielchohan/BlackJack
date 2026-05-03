@@ -11,8 +11,6 @@ namespace BlackJack
         #region Constants
         private const byte WIN_MULTIPLIER = 2;
         private const double BLACKJACK_MULTIPLIER = 2.5;
-        #endregion
-
         #region Data Members
         private string _name;
         private uint _chips;
@@ -46,7 +44,6 @@ namespace BlackJack
             private set { _chips = value; }
         }
         #endregion
-
         #region Methods
         public void PlaceBet(uint betAmount)
         {

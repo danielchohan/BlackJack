@@ -9,9 +9,7 @@ namespace BlackJack
 {
     internal class Game
     {
-        #region Constants
-        private byte MIN_VAL = 0;
-        #endregion
+
         #region Data Members
 
         private Deck _deck;
@@ -45,75 +43,19 @@ namespace BlackJack
         }
         public void PlayRound()
         {
-            DealInitialCards();
-            PlayerTurn();
-            DealersTurn();
+             
         }
 
         public void DealInitialCards()
         {
             for(int i = 0; i <2; i++)
             {
-                _player.Hand.AddCard(_deck.DealCards());
-                _dealer.Hand.AddCard(_deck.DealCards());
+                _player.Hand.AddCard(_deck.DealCards(_player));
+                _dealer.Hand.AddCard(_deck.DealCards(_player));
             }
         }
 
-        private void DisplayTable(bool showDealerCard)
-        {
-            Console.Clear();
-            for(int i = 0; i < _dealer.Hand.GetCards().Count; i++)
-            {
-                if(i == MIN_VAL && !showDealerCard)
-                {
-                    Console.WriteLine("Dealer's Card: [Hidden]");
-                }
-                else
-                {
-                    Console.WriteLine($"Dealer's Card: {_dealer.Hand.GetCards()[i]}");
-                }
-            }
-            foreach (Card card in _player.Hand.GetCards())
-            {
-                Console.WriteLine($"Player's Card: {card}");
-            }
-        }
-        
-        private void PlayerTurn()
-        {
-            string choice;
-            do
-            {
-                DisplayTable(false);
-                Console.Write("Do you want to hit or stand? (h/s) : ");
-                choice = Console.ReadLine().ToLower();
-                if (choice == "h")
-                {
-                    _player.TakeCard(_deck.DealCards());
-                }
-                else if (choice != "s")
-                {
-                    Console.BackgroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Invalid choice. Please enter 'h' to hit or 's' to stand.");
-                    Console.ResetColor();
-                }
-            } while (choice != "s" && !_player.Hand.IsBust());
-        }
-
-        private void DealersTurn()
-        {
-            while (_dealer.ShouldHit())
-            {
-                _dealer.TakeCard(_deck.DealCards());
-                DisplayTable(true);
-            }
-        }
-
-        private void DetermineOutcome()
-        {
-            uint playerHandValue = _player.Hand.GetTotalHandValue();
-            uint dealerHandValue = _dealer.Hand.GetTotalHandValue();
-        }
+        private void DisplayTable()
         private string StringValidation(string input)
         {
             while (string.IsNullOrEmpty(input))

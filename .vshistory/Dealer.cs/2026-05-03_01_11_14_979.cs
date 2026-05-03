@@ -12,8 +12,6 @@ namespace BlackJack
         #region Constants
         private const byte DEALER_HIT_THRESHOLD = 17;
         #endregion
-
-
         #region Data Members
         private Hand _hand;
         #endregion
@@ -24,7 +22,6 @@ namespace BlackJack
            Hand = new Hand();
         }
         #endregion
-
         #region Properties
         public Hand Hand
         {

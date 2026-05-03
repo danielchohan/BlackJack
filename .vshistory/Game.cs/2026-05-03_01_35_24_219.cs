@@ -47,15 +47,14 @@ namespace BlackJack
         {
             DealInitialCards();
             PlayerTurn();
-            DealersTurn();
         }
 
         public void DealInitialCards()
         {
             for(int i = 0; i <2; i++)
             {
-                _player.Hand.AddCard(_deck.DealCards());
-                _dealer.Hand.AddCard(_deck.DealCards());
+                _player.Hand.AddCard(_deck.DealCards(_player));
+                _dealer.Hand.AddCard(_deck.DealCards(_player));
             }
         }
 
@@ -107,12 +106,6 @@ namespace BlackJack
                 _dealer.TakeCard(_deck.DealCards());
                 DisplayTable(true);
             }
-        }
-
-        private void DetermineOutcome()
-        {
-            uint playerHandValue = _player.Hand.GetTotalHandValue();
-            uint dealerHandValue = _dealer.Hand.GetTotalHandValue();
         }
         private string StringValidation(string input)
         {
