@@ -35,18 +35,18 @@ namespace BlackJack
             _deck = new Deck();
             _deck.ShuffleDeck();
 
-            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.WriteLine("Welcome to Blackjack! Created by Daniel Chohan, a John Abbott College Student");
+            Console.WriteLine("\n");
+            Console.WriteLine("The rules are simple: Try to get as close to 21 as possible without going over. Aces can be worth 1 or 11, face cards are worth 10, and all other cards are worth their face value.");
+            Console.WriteLine("\n");
 
-            Console.WriteLine("BLACKJACK CREATED BY DANIEL CHOHAN");
-            Console.ResetColor();
-            Console.WriteLine("-----------------------------------------------------------------------------");
-            Console.WriteLine($"Starting Chips  |  Up to you! I recommend 500 for a fair experience.");
-            Console.WriteLine($"Min Bet         |  1  ");
-            Console.WriteLine($"Blackjack Pays  |  1.5x");
-            Console.WriteLine("First to 21 wins. Dealer must hit until reaching 17 or higher.");
-            Console.WriteLine("-----------------------------------------------------------------------------");
+            Console.WriteLine("If you get a Blackjack (an Ace and a 10-value card) on your initial deal, you win 1.5 times your bet! ");
+            Console.WriteLine("\n");
+            Console.WriteLine("If you beat the dealer's hand without going over 21, you win double your bet! If the dealer has a higher hand or you go over 21, you lose your bet. If it's a tie, your bet is returned.");
+            Console.WriteLine("\n");
 
             Console.WriteLine($"The time is currently {DateTime.Now}. Happy gambling!");
+            Console.WriteLine("\n");
             Console.WriteLine("\n");
             Console.Write("Enter your name : ");
             playerName = StringValidation(Console.ReadLine());

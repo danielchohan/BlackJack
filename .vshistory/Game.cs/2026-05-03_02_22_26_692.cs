@@ -37,16 +37,17 @@ namespace BlackJack
 
             Console.ForegroundColor = ConsoleColor.Magenta;
 
-            Console.WriteLine("BLACKJACK CREATED BY DANIEL CHOHAN");
+            Console.WriteLine("♥ ♦ BLACKJACK ♠ ♣");
             Console.ResetColor();
             Console.WriteLine("-----------------------------------------------------------------------------");
-            Console.WriteLine($"Starting Chips  |  Up to you! I recommend 500 for a fair experience.");
-            Console.WriteLine($"Min Bet         |  1  ");
-            Console.WriteLine($"Blackjack Pays  |  1.5x");
-            Console.WriteLine("First to 21 wins. Dealer must hit until reaching 17 or higher.");
+            Console.WriteLine($"  Starting Chips  |  500");
+            Console.WriteLine($"  Min Bet         |  1  ");
+            Console.WriteLine($"  Blackjack Pays  |  1.5x");
+            Console.WriteLine("First to 21 wins. Dealer must hit until reaching 17 or higher. Good luck!");
             Console.WriteLine("-----------------------------------------------------------------------------");
 
             Console.WriteLine($"The time is currently {DateTime.Now}. Happy gambling!");
+            Console.WriteLine("\n");
             Console.WriteLine("\n");
             Console.Write("Enter your name : ");
             playerName = StringValidation(Console.ReadLine());
