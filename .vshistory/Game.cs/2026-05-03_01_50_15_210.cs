@@ -45,23 +45,9 @@ namespace BlackJack
         }
         public void PlayRound()
         {
-            Console.WriteLine($"Starting a new round! Your current chips: {_player.Chips}");
-            uint bet = BalanceValidation(Console.ReadLine());
-            _player.PlaceBet(bet);
-
             DealInitialCards();
-
-            DisplayTable(false);
-
             PlayerTurn();
             DealersTurn();
-
-            DisplayTable(true);
-
-            DetermineOutcome();
-            
-            _player.Hand.ClearHand();
-            _dealer.Hand.ClearHand();
         }
 
         public void DealInitialCards()
