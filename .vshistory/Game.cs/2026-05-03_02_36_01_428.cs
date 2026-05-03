@@ -95,6 +95,7 @@ namespace BlackJack
             Console.WriteLine(showDealerCard ? "Dealer's Hand:" : "Dealer's Hand: [One Card Hidden]");
             Console.WriteLine($"Cards Remaining in Deck: {_deck.CardsRemaining()}");
             Console.WriteLine("--------------------------------------------");
+            Console.WriteLine("\n");
             for (int i = 0; i < _dealer.Hand.GetCards().Count; i++)
             {
                 if(i == MIN_VAL && !showDealerCard)
@@ -109,6 +110,7 @@ namespace BlackJack
                     DisplayCard(_dealer.Hand.GetCards()[i]);
                 }
             }
+            Console.WriteLine("\n");
             Console.WriteLine("\n");
             foreach (Card card in _player.Hand.GetCards())
             {

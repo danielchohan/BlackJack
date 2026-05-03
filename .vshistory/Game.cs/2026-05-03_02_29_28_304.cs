@@ -57,7 +57,6 @@ namespace BlackJack
         }
         public void PlayRound()
         {
-            Console.Clear();
             Console.WriteLine($"Starting a new round! Your current chips: {_player.Chips}");
             Console.WriteLine("Place your bet : ");
             uint bet = BalanceValidation(Console.ReadLine());
@@ -93,8 +92,6 @@ namespace BlackJack
             Console.WriteLine($"Player: {_player.Name} | Chips: {_player.Chips} | Current Bet: {_player.CurrentBet}");
             Console.WriteLine("--------------------------------------------");
             Console.WriteLine(showDealerCard ? "Dealer's Hand:" : "Dealer's Hand: [One Card Hidden]");
-            Console.WriteLine($"Cards Remaining in Deck: {_deck.CardsRemaining()}");
-            Console.WriteLine("--------------------------------------------");
             for (int i = 0; i < _dealer.Hand.GetCards().Count; i++)
             {
                 if(i == MIN_VAL && !showDealerCard)
@@ -109,6 +106,7 @@ namespace BlackJack
                     DisplayCard(_dealer.Hand.GetCards()[i]);
                 }
             }
+            Console.WriteLine("\n");
             Console.WriteLine("\n");
             foreach (Card card in _player.Hand.GetCards())
             {
@@ -206,8 +204,6 @@ namespace BlackJack
                 Console.ResetColor();
                 _player.PushBet();
             }
-           Console.WriteLine("---PRESS ANY KEY TO CONTINUE---");
-           Console.ReadKey();
         }
         
         private void DisplayCard(Card card)
@@ -244,13 +240,6 @@ namespace BlackJack
                 Console.ResetColor();
                 Console.Write("Enter your name : ");
                 input = Console.ReadLine();
-            }
-            foreach (char c in input)
-            {
-                if(char.IsDigit(c))
-                {
-                   throw new ArgumentException("Name cannot contain numbers. Please enter a valid name.");
-                }
             }
             return input;
         }

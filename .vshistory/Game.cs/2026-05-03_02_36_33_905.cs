@@ -110,6 +110,7 @@ namespace BlackJack
                 }
             }
             Console.WriteLine("\n");
+            Console.WriteLine("\n");
             foreach (Card card in _player.Hand.GetCards())
             {
                 Console.Write("Player's Card:");
