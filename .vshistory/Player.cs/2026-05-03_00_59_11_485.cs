@@ -42,6 +42,7 @@ namespace BlackJack
         }
         #endregion
         #region Methods
+
         public void PlaceBet(uint betAmount)
         {
             if(betAmount > Chips)
@@ -50,38 +51,8 @@ namespace BlackJack
             }
             Chips -= betAmount;
             _currentBet = betAmount;
-        }
-        public void WinBet()
-        {
-            Chips += _currentBet * 2; // Win double the amount of chips.
-            _currentBet = 0;
-        }
 
-        public void WinBlackJack()
-        {
-            Chips += (uint)(_currentBet * 2.5); // 2.5x payout for BlackJack.
-            _currentBet = 0;
         }
-
-        public void LoseBet()
-        {
-            _currentBet = 0;
-        }
-
-        public void TakeCard(Card card)
-        {
-            if (Hand == null)
-            {
-               Hand = new Hand();
-            }
-            Hand.AddCard(card);
-        }
-
-        public bool isBroke()
-        {
-            return Chips == 0; // Return true if player is broke and has no chips left, else return false.
-        }
-        #endregion
 
 
     }
