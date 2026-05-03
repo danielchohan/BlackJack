@@ -25,10 +25,6 @@
         #region Methods
         public void AddCard(Card card)
         {
-            if(card == null)
-            {
-                throw new ArgumentNullException("card", "Card cannot be null.");
-            }
             _cards.Add(card);
         }
 
@@ -52,20 +48,21 @@
             }
             return handValue;
         }
+
         public bool IsBust()
         {
-            return GetTotalHandValue() > MAX_HAND_VALUE; // Return true if GetHandValue is greater than 21, else return false.
+            return GetTotalHandValue() > MAX_HAND_VALUE;
         }
 
         public bool IsBlackJack()
         {
-            return GetTotalHandValue() == MAX_HAND_VALUE && _cards.Count == MIN_HAND_SIZE; // Returns true if GetHandValue is equal to 21 and the hand contains only 2 cards, else return false.
+            return GetTotalHandValue() == MAX_HAND_VALUE && _cards.Count == MIN_HAND_SIZE;
         }
         public void ClearHand()
         {
             _cards.Clear();
         }
-        public List<Card> GetCards() // Allows Game class to access the cards in the hand for display purposes.
+        public List<Card> GetCards()
         {
             return _cards;
         }

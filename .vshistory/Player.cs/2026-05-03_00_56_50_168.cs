@@ -8,12 +8,10 @@ namespace BlackJack
 {
     internal class Player
     {
-        #region Data Members
         private string _name;
         private uint _chips;
         private uint _currentBet;
         private Hand _hand;
-        #endregion
         public Player(string name_, uint chips_) 
         {
             Name = name_;
