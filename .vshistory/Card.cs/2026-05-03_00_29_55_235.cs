@@ -53,10 +53,8 @@ namespace BlackJack
         {
             return (uint)_cardRank;
         }
-        
-        public override string ToString()
-        {
-            return $"{_cardRank} of {_cardSuit}";
-        }
+
+
+   
     }
 }

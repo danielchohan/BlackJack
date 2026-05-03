@@ -50,10 +50,6 @@ namespace BlackJack
             cards.Remove(topCard);
             return topCard;
         }
-        public int CardsRemaining()
-        {
-            return cards.Count;
-        }
         #endregion
     }
 }

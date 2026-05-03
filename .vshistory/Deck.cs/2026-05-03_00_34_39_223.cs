@@ -44,15 +44,9 @@ namespace BlackJack
             }
         }
         
-        public Card DealCards(Player player)
+        public void DealCards(Player player)
         {
-            Card topCard = cards.FirstOrDefault();
-            cards.Remove(topCard);
-            return topCard;
-        }
-        public int CardsRemaining()
-        {
-            return cards.Count;
+            cards.First
         }
         #endregion
     }

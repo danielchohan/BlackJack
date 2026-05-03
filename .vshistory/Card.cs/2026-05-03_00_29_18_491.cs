@@ -42,21 +42,14 @@ namespace BlackJack
         public Suit CardSuit 
         { 
            get { return _cardSuit; }
-           private set { _cardSuit = value; }
-        }
-        public Rank CardRank
-        {
-            get { return _cardRank; }
-            private set { _cardRank = value; }
+           set { _cardSuit = value; }
         }
         public uint GetValue()
         {
             return (uint)_cardRank;
         }
-        
-        public override string ToString()
-        {
-            return $"{_cardRank} of {_cardSuit}";
-        }
+
+
+   
     }
 }

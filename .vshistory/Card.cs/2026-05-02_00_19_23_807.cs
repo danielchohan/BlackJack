@@ -8,9 +8,6 @@ namespace BlackJack
 {
     internal class Card
     {
-
-        private Suit _cardSuit;
-        private Rank _cardRank;
         public enum Suit
         {
             Hearts,
@@ -36,27 +33,19 @@ namespace BlackJack
         }
         public Card(Suit cardSuit_, Rank cardRank_)
         {
-            _cardSuit = cardSuit_;
-            _cardRank = cardRank_;
+            CardSuit = cardSuit_;
+            CardRank = cardRank_;
         }
-        public Suit CardSuit 
-        { 
-           get { return _cardSuit; }
-           private set { _cardSuit = value; }
-        }
-        public Rank CardRank
-        {
-            get { return _cardRank; }
-            private set { _cardRank = value; }
-        }
+
+        public Suit CardSuit { get; private set; }
+        public Rank CardRank { get; private set; }
+
         public uint GetValue()
         {
-            return (uint)_cardRank;
+            return (uint)CardRank;
         }
-        
-        public override string ToString()
-        {
-            return $"{_cardRank} of {_cardSuit}";
-        }
+
+
+   
     }
 }

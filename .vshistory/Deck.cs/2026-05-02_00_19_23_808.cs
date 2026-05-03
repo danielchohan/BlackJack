@@ -8,21 +8,9 @@ namespace BlackJack
 {
     internal class Deck
     {
-        #region Data Members
-        private List<Card> cards;
-        private Random rand;
-        #endregion
+        List<Card> cards = new List<Card>(52);
 
-        #region Constructors
         public Deck()
-        {
-            cards = new List<Card>(52);
-            rand = new Random();
-        }
-        #endregion
-
-        #region Methods
-        public void BuildDeck()
         {
             foreach (Card.Suit suit in Enum.GetValues(typeof(Card.Suit)))
             {
@@ -34,6 +22,7 @@ namespace BlackJack
         }
         public void ShuffleDeck()
         {
+            Random rand = new Random();
             int n = cards.Count;
             while(n > 1)
             {
@@ -43,17 +32,9 @@ namespace BlackJack
                 cards[n] = value;
             }
         }
-        
-        public Card DealCards(Player player)
+        public void DealCards(Player player)
         {
-            Card topCard = cards.FirstOrDefault();
-            cards.Remove(topCard);
-            return topCard;
+
         }
-        public int CardsRemaining()
-        {
-            return cards.Count;
-        }
-        #endregion
     }
 }
