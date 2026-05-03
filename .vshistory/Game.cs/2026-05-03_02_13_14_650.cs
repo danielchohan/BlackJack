@@ -91,9 +91,8 @@ namespace BlackJack
                     Console.Write("Dealer's Card:");
                     DisplayCard(_dealer.Hand.GetCards()[i]);
                 }
+
             }
-            Console.WriteLine("\n");
-            Console.WriteLine("\n");
             foreach (Card card in _player.Hand.GetCards())
             {
                 Console.Write("Player's Card:");
@@ -221,7 +220,7 @@ namespace BlackJack
         {
             while (string.IsNullOrEmpty(input))
             {
-                Console.ForegroundColor = ConsoleColor.Red;
+                Console.BackgroundColor = ConsoleColor.Red;
                 Console.WriteLine("Input cannot be empty. Please enter a valid name.");
                 Console.ResetColor();
                 Console.Write("Enter your name : ");
@@ -234,7 +233,7 @@ namespace BlackJack
             uint balance;
             while (!uint.TryParse(input, out balance) || balance <= 0)
             {
-                Console.ForegroundColor = ConsoleColor.Red;
+                Console.BackgroundColor = ConsoleColor.Red;
                 Console.WriteLine("Invalid input. Please enter a positive number for your starting money.");
                 Console.ResetColor();
                 Console.Write("Enter your starting money : ");
