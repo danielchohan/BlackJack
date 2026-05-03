@@ -91,7 +91,6 @@ namespace BlackJack
         {
             Console.Clear();
             Console.WriteLine($"Player: {_player.Name} | Chips: {_player.Chips} | Current Bet: {_player.CurrentBet}");
-            Console.WriteLine($"Player's Total Hand Value is {_player.Hand.GetTotalHandValue()}");
             Console.WriteLine("--------------------------------------------");
             Console.WriteLine(showDealerCard ? $"Dealer's Total Hand Value is: {_dealer.Hand.GetTotalHandValue()}" : "Dealer's Hand: [One Card Hidden]");
             Console.WriteLine($"Cards Remaining in Deck: {_deck.CardsRemaining()}");
@@ -117,6 +116,7 @@ namespace BlackJack
                 DisplayCard(card);
             }
             Console.WriteLine("--------------------------------------------");
+            Console.WriteLine($"Player's Total Hand Value is {_player.Hand.GetTotalHandValue()}");
         }
         
         private void PlayerTurn()

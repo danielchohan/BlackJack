@@ -91,9 +91,8 @@ namespace BlackJack
         {
             Console.Clear();
             Console.WriteLine($"Player: {_player.Name} | Chips: {_player.Chips} | Current Bet: {_player.CurrentBet}");
-            Console.WriteLine($"Player's Total Hand Value is {_player.Hand.GetTotalHandValue()}");
             Console.WriteLine("--------------------------------------------");
-            Console.WriteLine(showDealerCard ? $"Dealer's Total Hand Value is: {_dealer.Hand.GetTotalHandValue()}" : "Dealer's Hand: [One Card Hidden]");
+            Console.WriteLine(showDealerCard ? $"Dealer's Hand: {_dealer.Hand.GetTotalHandValue()}" : "Dealer's Hand: [One Card Hidden]");
             Console.WriteLine($"Cards Remaining in Deck: {_deck.CardsRemaining()}");
             Console.WriteLine("--------------------------------------------");
             for (int i = 0; i < _dealer.Hand.GetCards().Count; i++)
@@ -116,7 +115,7 @@ namespace BlackJack
                 Console.Write("Player's Card:");
                 DisplayCard(card);
             }
-            Console.WriteLine("--------------------------------------------");
+            Console.WriteLine($"Player's Total Hand Value is {_player.Hand.GetTotalHandValue()}");
         }
         
         private void PlayerTurn()
