@@ -35,16 +35,15 @@
                     {
                         keepPlaying = true;
                     }
-                    else
+                    else if(input == "n")
                     {
-                        Console.Clear();
                         Console.WriteLine($"Thanks for playing! You are broke and unfortunately cannot gamble further. See you next time!");
                         keepPlaying = false;
+                        
                     }
                 }
                 else
                 {
-                    Console.Clear();
                     Console.WriteLine($"Thanks for playing! You are cashing out with {_player.Chips} chips. See you next time!");
                     keepPlaying = false;
                 }
@@ -232,6 +231,8 @@
                 Console.ResetColor();
                 _player.PushBet();
             }
+            Console.WriteLine("---PRESS ANY KEY TO CONTINUE---");
+            Console.ReadKey();
         }
 
         private bool PlayAgain()

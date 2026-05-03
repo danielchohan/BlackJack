@@ -14,46 +14,15 @@
         #endregion
         public void Start()
         {
-            bool keepPlaying = true;
-            string input;
-
-            while (keepPlaying)
+            Setup();
+            do
             {
-                Setup();
-                do
-                {
-                    PlayRound();
-                } while (!_player.isBroke() && PlayAgain());
-
-                if(_player.isBroke())
-                {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("You are broke! Do you want to restart from scratch and try your hand again? (y/n) : ");
-                    Console.ResetColor();
-                    input = Console.ReadLine().ToLower();
-                    if (input == "y")
-                    {
-                        keepPlaying = true;
-                    }
-                    else
-                    {
-                        Console.Clear();
-                        Console.WriteLine($"Thanks for playing! You are broke and unfortunately cannot gamble further. See you next time!");
-                        keepPlaying = false;
-                    }
-                }
-                else
-                {
-                    Console.Clear();
-                    Console.WriteLine($"Thanks for playing! You are cashing out with {_player.Chips} chips. See you next time!");
-                    keepPlaying = false;
-                }
-            }
+                PlayRound();
+            } while (!_player.isBroke());
         }
 
         public void Setup()
         {
-            Console.Clear();
             string playerName;
             uint playerMoney;
             _deck = new Deck();
@@ -232,6 +201,8 @@
                 Console.ResetColor();
                 _player.PushBet();
             }
+            Console.WriteLine("---PRESS ANY KEY TO CONTINUE---");
+            Console.ReadKey();
         }
 
         private bool PlayAgain()

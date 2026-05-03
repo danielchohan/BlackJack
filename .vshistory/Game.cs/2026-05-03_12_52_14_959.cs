@@ -37,14 +37,12 @@
                     }
                     else
                     {
-                        Console.Clear();
                         Console.WriteLine($"Thanks for playing! You are broke and unfortunately cannot gamble further. See you next time!");
                         keepPlaying = false;
                     }
                 }
                 else
                 {
-                    Console.Clear();
                     Console.WriteLine($"Thanks for playing! You are cashing out with {_player.Chips} chips. See you next time!");
                     keepPlaying = false;
                 }
