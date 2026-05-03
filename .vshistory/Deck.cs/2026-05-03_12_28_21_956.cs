@@ -23,8 +23,6 @@ namespace BlackJack
         {
             cards = new List<Card>(DECK_SIZE);
             rand = new Random();
-            BuildDeck();
-            ShuffleDeck();
         }
         #endregion
 
@@ -47,7 +45,6 @@ namespace BlackJack
                 n--;
                 int k = rand.Next(n + 1);
                 Card value = cards[k];
-                cards[k] = cards[n];
                 cards[n] = value;
             }
         }

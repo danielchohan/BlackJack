@@ -1,5 +1,12 @@
-﻿namespace BlackJack
-{
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace BlackJack
+{ 
     internal class Game
     {
         #region Constants
@@ -18,7 +25,7 @@
             do
             {
                 PlayRound();
-            } while (!_player.isBroke());
+            }while(!_player.isBroke());
         }
 
         public void Setup()
@@ -66,14 +73,14 @@
             DisplayTable(true);
 
             DetermineOutcome();
-
+            
             _player.Hand.ClearHand();
             _dealer.Hand.ClearHand();
         }
 
         public void DealInitialCards()
         {
-            for (int i = 0; i < 2; i++)
+            for(int i = 0; i <2; i++)
             {
                 _player.Hand.AddCard(_deck.DealCards());
                 _dealer.Hand.AddCard(_deck.DealCards());
@@ -91,7 +98,7 @@
             Console.WriteLine("--------------------------------------------");
             for (int i = 0; i < _dealer.Hand.GetCards().Count; i++)
             {
-                if (i == MIN_VAL && !showDealerCard)
+                if(i == MIN_VAL && !showDealerCard)
                 {
                     Console.Write("Dealer's Card: ");
                     Console.WriteLine("[Hidden]");
@@ -111,7 +118,7 @@
             }
             Console.WriteLine("--------------------------------------------");
         }
-
+        
         private void PlayerTurn()
         {
             string choice;
@@ -144,66 +151,66 @@
 
         private void DetermineOutcome()
         {
-            if (_player.Hand.IsBlackJack() && _dealer.Hand.IsBlackJack())
+           if(_player.Hand.IsBlackJack() && _dealer.Hand.IsBlackJack())
             {
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("It's a push! Both player and dealer have Blackjack, your chips are returned.");
                 Console.ResetColor();
                 _player.PushBet();
             }
-            else if (_player.Hand.IsBlackJack() && !_dealer.Hand.IsBlackJack())
+           else if(_player.Hand.IsBlackJack() && !_dealer.Hand.IsBlackJack())
             {
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Congratulations! You win with a Blackjack!");
                 Console.ResetColor();
                 _player.WinBlackJack();
             }
-            else if (!_player.Hand.IsBlackJack() && _dealer.Hand.IsBlackJack())
+           else if(!_player.Hand.IsBlackJack() && _dealer.Hand.IsBlackJack())
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Dealer has Blackjack! You lose.");
                 Console.ResetColor();
                 _player.LoseBet();
             }
-            else if (_player.Hand.IsBust())
+            else if(_player.Hand.IsBust())
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("You busted! You lose.");
                 Console.ResetColor();
                 _player.LoseBet();
             }
-            else if (_dealer.Hand.IsBust())
+           else if (_dealer.Hand.IsBust())
             {
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Dealer has busted! You win!");
                 Console.ResetColor();
                 _player.WinBet();
             }
-            else if (_player.Hand.GetTotalHandValue() > _dealer.Hand.GetTotalHandValue())
+           else if(_player.Hand.GetTotalHandValue() > _dealer.Hand.GetTotalHandValue())
             {
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Congratulations! You won with a higher hand value than the dealer!");
                 Console.ResetColor();
                 _player.WinBet();
             }
-            else if (_player.Hand.GetTotalHandValue() < _dealer.Hand.GetTotalHandValue())
+           else if(_player.Hand.GetTotalHandValue() < _dealer.Hand.GetTotalHandValue())
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Dealer wins with a higher hand value! You lose.");
                 Console.ResetColor();
                 _player.LoseBet();
             }
-            else if (_player.Hand.GetTotalHandValue() == _dealer.Hand.GetTotalHandValue())
+           else if(_player.Hand.GetTotalHandValue() == _dealer.Hand.GetTotalHandValue())
             {
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("It's a push! Both player and dealer have the same hand value, your chips are returned.");
                 Console.ResetColor();
                 _player.PushBet();
             }
-            Console.WriteLine("---PRESS ANY KEY TO CONTINUE---");
-            Console.ReadKey();
+           Console.WriteLine("---PRESS ANY KEY TO CONTINUE---");
+           Console.ReadKey();
         }
-
+        
         private void DisplayCard(Card card)
         {
             switch (card.CardSuit)
@@ -225,10 +232,10 @@
                     Console.Write("♠ ");
                     break;
             }
-            Console.WriteLine(card.ToString());
-            Console.ResetColor();
-        }
-
+                Console.WriteLine(card.ToString());
+                Console.ResetColor();
+            }
+   
         private string StringValidation(string input)
         {
             while (string.IsNullOrEmpty(input))
@@ -241,9 +248,9 @@
             }
             foreach (char c in input)
             {
-                if (char.IsDigit(c))
+                if(char.IsDigit(c))
                 {
-                    throw new ArgumentException("Name cannot contain numbers. Please enter a valid name.");
+                   throw new ArgumentException("Name cannot contain numbers. Please enter a valid name.");
                 }
             }
             return input;
