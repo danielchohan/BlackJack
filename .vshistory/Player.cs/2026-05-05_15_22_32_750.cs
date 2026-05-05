@@ -68,7 +68,7 @@ namespace BlackJack
             _currentBet = betAmount;
         }
 
-        public void DoubleDown()
+        public void DoubleDown(Card card)
         {
             if (_currentBet == 0)
             {

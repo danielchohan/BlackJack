@@ -69,18 +69,6 @@ namespace BlackJack
         }
 
         public void DoubleDown()
-        {
-            if (_currentBet == 0)
-            {
-                throw new InvalidOperationException("No bet placed to double down.");
-            }
-            if (_currentBet > Chips)
-            {
-                throw new InvalidOperationException("Not enough chips to double down.");
-            }
-            Chips -= _currentBet; // Deduct the additional bet amount from the player's chips.
-            _currentBet *= 2; // Double the current bet.
-        }
         public void WinBet()
         {
             Chips += _currentBet * WIN_MULTIPLIER; // Win double the amount of chips.

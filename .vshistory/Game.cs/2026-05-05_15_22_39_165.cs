@@ -148,7 +148,6 @@
         private void PlayerTurn()
         {
             string choice;
-            bool doubleDown = false;
             do
             {
                 DisplayTable(false);
@@ -160,9 +159,7 @@
                 }
                 else if (choice == "d")
                 {
-                    _player.DoubleDown();
-                    _player.TakeCard(_deck.DealCards());
-                    doubleDown = true;
+                    _player.DoubleDown(_deck.DealCards());
                 }
                 else if (choice != "s")
                 {
@@ -170,7 +167,7 @@
                     Console.WriteLine("Invalid choice. Please enter 'h' to hit or 's' to stand.");
                     Console.ResetColor();
                 }
-            } while (choice != "s" && !_player.Hand.IsBust() && !doubleDown);
+            } while (choice != "s" && !_player.Hand.IsBust());
         }
 
         private void DealersTurn()

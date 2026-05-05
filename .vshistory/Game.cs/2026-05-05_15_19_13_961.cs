@@ -148,21 +148,14 @@
         private void PlayerTurn()
         {
             string choice;
-            bool doubleDown = false;
             do
             {
                 DisplayTable(false);
-                Console.Write("Do you want to hit, double down or stand? (h/d/s) : ");
+                Console.Write("Do you want to hit or stand? (h/s) : ");
                 choice = Console.ReadLine().ToLower();
                 if (choice == "h")
                 {
                     _player.TakeCard(_deck.DealCards());
-                }
-                else if (choice == "d")
-                {
-                    _player.DoubleDown();
-                    _player.TakeCard(_deck.DealCards());
-                    doubleDown = true;
                 }
                 else if (choice != "s")
                 {
@@ -170,7 +163,7 @@
                     Console.WriteLine("Invalid choice. Please enter 'h' to hit or 's' to stand.");
                     Console.ResetColor();
                 }
-            } while (choice != "s" && !_player.Hand.IsBust() && !doubleDown);
+            } while (choice != "s" && !_player.Hand.IsBust());
         }
 
         private void DealersTurn()
@@ -304,10 +297,6 @@
         private string BetValidation(string input)
         {
             uint bet;
-            if (input == "a" || input == "all in")
-            {
-                return _player.Chips.ToString();
-            }
             while (!uint.TryParse(input, out bet) || bet <= 0 || bet > _player.Chips)
             {
                 Console.ForegroundColor = ConsoleColor.Red;

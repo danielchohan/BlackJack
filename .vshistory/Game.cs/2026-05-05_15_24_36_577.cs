@@ -162,7 +162,6 @@
                 {
                     _player.DoubleDown();
                     _player.TakeCard(_deck.DealCards());
-                    doubleDown = true;
                 }
                 else if (choice != "s")
                 {
