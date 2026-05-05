@@ -82,6 +82,7 @@ namespace BlackJack
             Chips -= _currentBet; // Deduct the additional bet amount from the player's chips.
             _currentBet *= DOUBLE_DOWN_MULTIPLIER; // Double the current bet.
         }
+        public void Split()
         public void WinBet()
         {
             Chips += _currentBet * WIN_MULTIPLIER; // Win double the amount of chips.
